@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="return login()">
+
+    
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" placeholder="Enter username"></body></input>
+    <input type="submit" value="Login">
+    </form>
+    <p id="message"></p>
+    <script>
+        function login(){
+            const username =document.getElementById("username").value
+            if(username ===boy){
+                document.getElementById("message").innerText="login succesfully"
+            }else{
+                document.getElementById("message").innerText="wrong credentials"
+            }
+            return false;
+        }
+
+    </script>
+</html>

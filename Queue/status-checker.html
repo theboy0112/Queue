@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pass/Return Meaning Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f2f2f2;
+    }
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    select, p {
+      font-size: 16px;
+      margin-top: 20px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Pass/Return Meaning Checker</h2>
+
+    <label for="statusSelect">Select a Status:</label>
+    <select id="statusSelect" onchange="showMeaning()">
+      <option value="">-- Choose an option --</option>
+      <option value="pass return">pass return</option>
+      <option value="no pass return">no pass return</option>
+      <option value="no pass no return">no pass no return</option>
+      <option value="pass no return">pass no return</option>
+    </select>
+
+    <p id="meaning"></p>
+  </div>
+
+  <script>
+    function showMeaning() {
+      const value = document.getElementById("statusSelect").value;
+      const meaningBox = document.getElementById("meaning");
+      let meaning = "";
+
+      switch (value) {
+        case "pass return":
+          meaning = "✅ Passed and ✅ Returned — Item passed the test and was returned.";
+          break;
+        case "no pass return":
+          meaning = "❌ Failed but ✅ Returned — Item failed but still returned (e.g., for revision).";
+          break;
+        case "no pass no return":
+          meaning = "❌ Failed and ❌ Not Returned — Item failed and was kept (e.g., for review).";
+          break;
+        case "pass no return":
+          meaning = "✅ Passed but ❌ Not Returned — Item passed but kept (e.g., for display).";
+          break;
+        default:
+          meaning = "";
+      }
+
+      meaningBox.textContent = meaning;
+    }
+  </script>
+</body>
+</html>
